@@ -27,7 +27,7 @@ pipeline {
       }
       stage('Deploy') {
           steps {
-              sh 'curl http://host.docker.internal:8081/deploy/?id=flask_p1 > out.txt'
+              sh 'curl http://host.docker.internal:8081/deploy/?id=flask_1 > out.txt'
               sh 'cat out.txt'
               sh 'cat out.txt | cut -d : -f 1-2 | grep true -q'
           }
