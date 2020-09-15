@@ -22,7 +22,7 @@ pipeline {
       }
       stage('Test') {
           steps {
-              sh 'sudo docker exec flask_app python -m pytest'
+              sh 'sudo docker exec flask_app /bin/sh -c "python -m pytest"'
           }
       }
       stage('Deploy') {
