@@ -7,4 +7,4 @@ def hello_world():
     return 'hello world! v2'
 
 if __name__ == '__main__':
-    server.run()
+    server.run(host='0.0.0.0')
