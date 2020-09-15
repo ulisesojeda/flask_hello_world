@@ -17,12 +17,12 @@ pipeline {
       }
       stage('Lint') {
           steps {
-              sh 'docker run exec flask_app /bin/sh -f ./lint.sh'
+              sh 'sudo docker run exec flask_app /bin/sh -f ./lint.sh'
           }
       }
       stage('Test') {
           steps {
-              sh 'docker run exec flask_app python -m pytest'
+              sh 'sudo docker run exec flask_app python -m pytest'
           }
       }
       stage('Deploy') {
