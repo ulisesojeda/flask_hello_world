@@ -17,7 +17,7 @@ pipeline {
       }
       stage('Lint') {
           steps {
-              sh 'sudo docker exec flask_app find . -name "*.py" | grep -v "env" | while read file; do flake8 $file; done'
+              sh 'sudo docker exec flask_app find . -name "*.py" | grep -v "env" | while read file; do python -m flake8 $file; done'
           }
       }
       stage('Test') {
