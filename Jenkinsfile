@@ -17,7 +17,7 @@ pipeline {
       }
       stage('Lint') {
           steps {
-              sh 'docker run exec flask_app find . -name "*.py" | grep -v "env" | while read file; do flake8 $file; done'
+              sh 'docker run exec flask_app /bin/sh -f ./lint.sh'
           }
       }
       stage('Test') {
