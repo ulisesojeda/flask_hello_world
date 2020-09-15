@@ -17,7 +17,7 @@ pipeline {
       }
       stage('Lint') {
           steps {
-              sh 'sudo docker exec flask_app /bin/sh -c "/usr/bin/find /usr/src/ -name *.py | grep -v env | while read line; do python -m flake8 --exit-zero $file; done"'
+              sh 'sudo docker exec flask_app /bin/sh -c "/usr/bin/find /usr/src/ -name *.py | grep -v env | while read file; do python -m flake8 --exit-zero $file; done"'
           }
       }
       stage('Test') {
