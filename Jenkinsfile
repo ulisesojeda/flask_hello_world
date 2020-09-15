@@ -12,7 +12,7 @@ pipeline {
       }
       stage('Build') {
           steps {
-              sh 'sudo docker build -t flask_app . && sudo docker run --name flask_app'
+              sh 'sudo docker build -t flask_app . && sudo docker run --name flask_app flask_app'
           }
       }
       stage('Lint') {
