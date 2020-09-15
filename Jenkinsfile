@@ -17,12 +17,12 @@ pipeline {
       }
       stage('Lint') {
           steps {
-              sh 'docker exec flask_app find . -name "*.py" | grep -v "env" | while read file; do flake8 $file; done'
+              sh 'sudo docker exec flask_app find . -name "*.py" | grep -v "env" | while read file; do flake8 $file; done'
           }
       }
       stage('Test') {
           steps {
-              sh 'docker exec flask_app python -m pytest'
+              sh 'sudo docker exec flask_app python -m pytest'
           }
       }
       stage('Deploy') {
