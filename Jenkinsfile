@@ -6,28 +6,28 @@ pipeline {
          steps {
             echo 'Checking out repo ..'
             git branch: 'master',
-                credentialsId: 'flask_hello_1_github_token',
+                credentialsId: 'P4_github_token',
                 url: 'https://github.com/ulisesojeda/flask_hello_world.git'
          }
       }
       stage('Build') {
           steps {
-              sh ''
+              sh 'chmod +x deploy/build.sh && ./build.sh'
           }
       }
       stage('Lint') {
           steps {
-              sh 'docker run exec flask_app find . -name "*.py" | grep -v "env" | while read file; do flake8 $file; done'
+              sh 'chmod +x deploy/lint.sh && ./lint.sh'
           }
       }
       stage('Test') {
           steps {
-              sh 'docker run exec flask_app python -m pytest'
+              sh 'chmod +x deploy/test.sh && ./test.sh'
           }
       }
       stage('Deploy') {
           steps {
-              sh 'curl http://backend:8000/deploy/?id=flask_hello_1 > out.txt'
+              sh 'curl http://backend:8000/deploy/?id=P4 > out.txt'
               sh 'cat out.txt'
               sh 'cat out.txt | cut -d : -f 1-2 | grep true -q'
           }
