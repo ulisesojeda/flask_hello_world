@@ -17,7 +17,7 @@ pipeline {
       }
       stage('Lint') {
           steps {
-              sh 'ls -la && ./lint.sh'
+              sh 'sudo ./lint.sh'
           }
       }
       stage('Test') {
