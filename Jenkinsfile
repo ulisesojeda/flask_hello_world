@@ -12,7 +12,7 @@ pipeline {
       }
       stage('Build') {
           steps {
-              sh 'sudo docker build --rm -t flask_app . && sudo docker rm flask_app --force | true && sudo docker run -d --name flask_app flask_app'
+              sh 'chmod +x ./build.sh && ./build.sh'
           }
       }
       stage('Lint') {
@@ -22,7 +22,7 @@ pipeline {
       }
       stage('Test') {
           steps {
-              sh 'test.sh'
+              sh 'chmod +x ./test.sh && ./test.sh'
           }
       }
       stage('Deploy') {
