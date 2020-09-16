@@ -1,1 +1,0 @@
-sudo docker-compose build --no-cache --force-rm && sudo docker rm flask_app --force | true && sudo docker run -d --name flask_app flask_app
