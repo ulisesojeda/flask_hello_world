@@ -17,7 +17,7 @@ pipeline {
       }
       stage('Lint') {
           steps {
-              sh 'sudo ./lint.sh'
+              sh 'chmod +x ./lint.sh && ./lint.sh'
           }
       }
       stage('Test') {
