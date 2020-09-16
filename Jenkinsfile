@@ -17,12 +17,12 @@ pipeline {
       }
       stage('Lint') {
           steps {
-              sh 'source ./lint.sh'
+              sh 'lint.sh'
           }
       }
       stage('Test') {
           steps {
-              sh 'source ./test.sh'
+              sh 'test.sh'
           }
       }
       stage('Deploy') {
