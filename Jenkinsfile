@@ -12,17 +12,17 @@ pipeline {
       }
       stage('Build') {
           steps {
-              sh 'chmod +x deploy/build.sh && ./build.sh'
+              sh 'chmod +x deploy/build.sh && deploy/build.sh'
           }
       }
       stage('Lint') {
           steps {
-              sh 'chmod +x deploy/lint.sh && ./lint.sh'
+              sh 'chmod +x deploy/lint.sh && deploy/lint.sh'
           }
       }
       stage('Test') {
           steps {
-              sh 'chmod +x deploy/test.sh && ./test.sh'
+              sh 'chmod +x deploy/test.sh && deploy/test.sh'
           }
       }
       stage('Deploy') {

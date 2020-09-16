@@ -1,3 +1,7 @@
 flask
 flake8
+<<<<<<< HEAD
 pytest
+=======
+pytest
+>>>>>>> 0845e211d8d12aa073a2466bc327a9908874f97d
