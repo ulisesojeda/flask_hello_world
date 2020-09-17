@@ -1,0 +1,1 @@
+sudo docker rm flask_app --force
