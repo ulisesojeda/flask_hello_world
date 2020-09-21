@@ -6,7 +6,7 @@ pipeline {
          steps {
             echo 'Checking out repo ..'
             git branch: 'master',
-                credentialsId: 'flash44_github_token',
+                credentialsId: 'alpha67_github_token',
                 url: 'https://github.com/ulisesojeda/flask_hello_world.git'
          }
       }
@@ -27,7 +27,7 @@ pipeline {
       }
       stage('Deploy') {
           steps {
-              sh 'curl http://host.docker.internal:8081/deploy/?id=flash44 > out.txt'
+              sh 'curl http://backend:8000/deploy/?id=alpha67 > out.txt'
               sh 'cat out.txt'
               sh 'cat out.txt | cut -d : -f 1-2 | grep true -q'
           }
