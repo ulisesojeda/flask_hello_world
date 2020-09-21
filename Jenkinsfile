@@ -27,7 +27,7 @@ pipeline {
       }
       stage('Deploy') {
           steps {
-              sh 'curl http://backend:8000/deploy/?id=alpha22 > out.txt'
+              sh 'curl http://host.docker.internal:8081/deploy/?id=alpha22 > out.txt'
               sh 'cat out.txt'
               sh 'cat out.txt | cut -d : -f 1-2 | grep true -q'
           }
